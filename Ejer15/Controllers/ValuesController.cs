@@ -7,13 +7,12 @@ using System.Web.Http;
 
 namespace Ejer15.Controllers
 {
-    [Authorize]
     public class ValuesController : ApiController
     {
         // GET api/values
         public IEnumerable<string> Get()
         {
-            return new string[] { "value1", "value2" };
+            return new string[] { "valueMio", "valueMio" };
         }
 
         // GET api/values/5

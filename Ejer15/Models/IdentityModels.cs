@@ -29,5 +29,7 @@ namespace Ejer15.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<Ejer15.Entrada> Entradas { get; set; }
     }
 }
