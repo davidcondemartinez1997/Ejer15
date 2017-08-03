@@ -10,6 +10,8 @@ using System.Web.Http;
 using System.Web.Http.Description;
 using Ejer15;
 using Ejer15.Models;
+using Ejer15.Repository;
+using Ejer15.Servicios;
 
 namespace Ejer15.Controllers
 {
@@ -80,8 +82,9 @@ namespace Ejer15.Controllers
                 return BadRequest(ModelState);
             }
 
-            db.Entradas.Add(entrada);
-            db.SaveChanges();
+            IEntradasRepository entradasRepository = new EntradasRepository();
+            IEntradasService entradasService = new EntradasService(entradasRepository);
+            entrada = entradasService.Create(entrada);
 
             return CreatedAtRoute("DefaultApi", new { id = entrada.ID }, entrada);
         }
